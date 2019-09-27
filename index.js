@@ -99,6 +99,11 @@ module.exports = {
     if (!this._isCoverageEnabled()) {
       return;
     }
+
+    if (!this.fileLookup) {
+      this.included(this)
+    }
+
     attachMiddleware.serverMiddleware(startOptions.app, {
       configPath: this.project.configPath(),
       root: this.project.root,
@@ -109,12 +114,18 @@ module.exports = {
   testemMiddleware: function(app) {
     if (!this._isCoverageEnabled()) {
       return;
+		}
+
+    if (!this.fileLookup) {
+      this.included(this)
     }
+
     const config = {
       configPath: this.project.configPath(),
       root: this.project.root,
       fileLookup: this.fileLookup
     };
+
     // if we're running `ember test --server` use the `serverMiddleware`.
     if (process.argv.includes('--server') || process.argv.includes('-s')) {
       return this.serverMiddleware({ app }, config);
