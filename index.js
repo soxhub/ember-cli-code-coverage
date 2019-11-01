@@ -112,6 +112,11 @@ module.exports = {
     if (!this._isCoverageEnabled()) {
       return;
     }
+
+    if (!this.fileLookup) {
+      this.included(this);
+    }
+		
     const config = {
       configPath: this.project.configPath(),
       root: this.project.root,
