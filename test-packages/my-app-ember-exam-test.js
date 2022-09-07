@@ -42,7 +42,7 @@ describe('ember-exam app coverage generation', function () {
     dir(`${BASE_PATH}/coverage`).assertDoesNotExist();
 
     let env = { COVERAGE: 'true' };
-    await execa('ember', ['exam', '--split=2', '--parallel=true'], { cwd: BASE_PATH, env });
+    await execa('ember', ['exam', '--split=2', '--parallel=1'], { cwd: BASE_PATH, env });
     file(`${BASE_PATH}/coverage/lcov-report/index.html`).assertIsNotEmpty();
     file(`${BASE_PATH}/coverage/index.html`).assertIsNotEmpty();
 
@@ -55,7 +55,7 @@ describe('ember-exam app coverage generation', function () {
     fs.copySync(`${BASE_PATH}/config/-coverage-parallel.js`, `${BASE_PATH}/config/coverage.js`);
 
     let env = { COVERAGE: 'true' };
-    await execa('ember', ['exam', '--split=2', '--parallel=true'], { cwd: BASE_PATH, env });
+    await execa('ember', ['exam', '--split=2', '--parallel=1'], { cwd: BASE_PATH, env });
     dir(`${BASE_PATH}/coverage`).assertDoesNotExist();
 
     await execa('ember', ['coverage-merge'], { cwd: BASE_PATH });
@@ -89,23 +89,23 @@ describe('ember-exam app coverage generation', function () {
   });
 
   it('uses nested coverageFolder and parallel configuration and run merge-coverage', async function () {
-    let coverageFolder = `${BASE_PATH} / coverage / abc / easy - as / 123`;
+    let coverageFolder = `${BASE_PATH}/coverage/abc/easy-as/123`;
 
     dir(coverageFolder).assertDoesNotExist();
     fs.copySync(
-      `${BASE_PATH} / config / -coverage - nested - folder.js`,
-      `${BASE_PATH} / config / coverage.js`
+      `${BASE_PATH}/config/-coverage-nested-folder.js`,
+      `${BASE_PATH}/config/coverage.js`
     );
 
     let env = { COVERAGE: 'true' };
-    await execa('ember', ['exam', '--split=2', '--parallel=true'], { cwd: BASE_PATH, env });
+    await execa('ember', ['exam', '--split=2', '--parallel=1'], { cwd: BASE_PATH, env });
     dir(coverageFolder).assertDoesNotExist();
 
     await execa('ember', ['coverage-merge'], { cwd: BASE_PATH });
-    file(`${coverageFolder} / lcov - report / index.html`).assertIsNotEmpty();
-    file(`${coverageFolder} / index.html`).assertIsNotEmpty();
+    file(`${coverageFolder}/lcov-report/index.html`).assertIsNotEmpty();
+    file(`${coverageFolder}/index.html`).assertIsNotEmpty();
 
-    let summary = fs.readJSONSync(`${coverageFolder} / coverage - summary.json`);
+    let summary = fs.readJSONSync(`${coverageFolder}/coverage-summary.json`);
     expect(summary).toMatchSnapshot();
   });
 });
