@@ -76,7 +76,7 @@ describe('ember-exam app coverage generation', function () {
 
     const promises = [];
     Array(split).fill().forEach((_, i) => {
-      promises.push(execa('ember', ['exam', `--split=${split}`, `--partition=${i + 1}`, '--path=test-dist', '--test-port=0'], { cwd: BASE_PATH, env }));
+      promises.push(execa('ember', ['exam', `--split=${split}`, `--partition=${i + 1}`, '--path=test-dist', '--parallel=2', '--test-port=0'], { cwd: BASE_PATH, env }));
     });
 
     await Promise.all(promises);
