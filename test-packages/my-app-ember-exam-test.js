@@ -76,6 +76,7 @@ describe('ember-exam app coverage generation', function () {
     await execa('ember', ['exam', '--path=test-dist', `--split=${split}`, `--parallel=1`], { cwd: BASE_PATH, env });
     dir(`${BASE_PATH}/coverage`).assertDoesNotExist();
 
+    const coverageFolders = glob.sync(`${BASE_PATH}/coverage*`);
 
     expect(coverageFolders.length).toEqual(split);
 
