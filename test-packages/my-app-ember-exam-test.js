@@ -76,10 +76,14 @@ describe('ember-exam app coverage generation', function () {
 
     const promises = [];
     Array(split).fill().forEach((_, i) => {
-      promises.push(execa('ember', ['exam', `--split=${split}`, `--partition=${i + 1}`, '--path=test-dist', '--parallel=2', '--test-port=0'], { cwd: BASE_PATH, env }));
+      promises.push(execa('ember', ['exam', '--path=test-dist', `--split=${split}`, `--partition=${i + 1}`, '--parallel=2', '--load-balance', '--test-port=0'], { cwd: BASE_PATH, env }));
     });
 
-    await Promise.all(promises);
+    try {
+      await Promise.all(promises);
+    } catch (error) {
+      console.log({ error });
+    }
 
     dir(`${BASE_PATH}/coverage`).assertDoesNotExist();
 
