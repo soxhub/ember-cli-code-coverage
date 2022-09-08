@@ -1,6 +1,6 @@
 {
-  "name": "ember-cli-code-coverage",
-  "version": "2.0.0-beta.4",
+  "name": "@kiwiupover/ember-cli-code-coverage",
+  "version": "2.0.0-beta.5",
   "description": "Code coverage for ember projects using Istanbul",
   "keywords": [
     "ember-addon"
@@ -95,7 +95,7 @@
     "node": "12.* || 14.* || >= 16"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://npm.pkg.github.com/kiwiupover"
   },
   "ember": {
     "edition": "octane"
