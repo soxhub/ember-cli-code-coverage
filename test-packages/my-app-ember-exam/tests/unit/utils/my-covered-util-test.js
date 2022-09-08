@@ -8,3 +8,10 @@ test('it works', function (assert) {
   let result = myCoveredUtil();
   assert.ok(result);
 });
+
+Array(100).fill().forEach((_, i) => {
+  test(`it works ${i}`, function (assert) {
+    let result = myCoveredUtil();
+    assert.ok(result);
+  });
+})
