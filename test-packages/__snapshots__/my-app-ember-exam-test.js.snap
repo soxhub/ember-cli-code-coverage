@@ -802,6 +802,58 @@ Object {
       "total": 3,
     },
   },
+  "app/utils/my-covered-util-three.js": Object {
+    "branches": Object {
+      "covered": 0,
+      "pct": 100,
+      "skipped": 0,
+      "total": 0,
+    },
+    "functions": Object {
+      "covered": 1,
+      "pct": 16.67,
+      "skipped": 0,
+      "total": 6,
+    },
+    "lines": Object {
+      "covered": 1,
+      "pct": 16.67,
+      "skipped": 0,
+      "total": 6,
+    },
+    "statements": Object {
+      "covered": 1,
+      "pct": 16.67,
+      "skipped": 0,
+      "total": 6,
+    },
+  },
+  "app/utils/my-covered-util-two.js": Object {
+    "branches": Object {
+      "covered": 0,
+      "pct": 100,
+      "skipped": 0,
+      "total": 0,
+    },
+    "functions": Object {
+      "covered": 1,
+      "pct": 16.67,
+      "skipped": 0,
+      "total": 6,
+    },
+    "lines": Object {
+      "covered": 1,
+      "pct": 16.67,
+      "skipped": 0,
+      "total": 6,
+    },
+    "statements": Object {
+      "covered": 1,
+      "pct": 16.67,
+      "skipped": 0,
+      "total": 6,
+    },
+  },
   "app/utils/my-covered-util.js": Object {
     "branches": Object {
       "covered": 0,
@@ -914,22 +966,22 @@ Object {
       "total": 0,
     },
     "functions": Object {
-      "covered": 1,
-      "pct": 5,
+      "covered": 3,
+      "pct": 9.38,
       "skipped": 0,
-      "total": 20,
+      "total": 32,
     },
     "lines": Object {
-      "covered": 6,
-      "pct": 23.08,
+      "covered": 8,
+      "pct": 21.05,
       "skipped": 0,
-      "total": 26,
+      "total": 38,
     },
     "statements": Object {
-      "covered": 6,
-      "pct": 23.08,
+      "covered": 8,
+      "pct": 21.05,
       "skipped": 0,
-      "total": 26,
+      "total": 38,
     },
   },
 }

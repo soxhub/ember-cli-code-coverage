@@ -89,7 +89,7 @@ describe('ember-exam app coverage generation', function () {
 
     const coverageFolders = glob.sync(`${BASE_PATH}/coverage*`);
 
-    expect(coverageFolders.length).toEqual(split);
+    expect(coverageFolders.length).toEqual(split * 2);
 
     await execa('ember', ['coverage-merge'], { cwd: BASE_PATH });
     file(`${BASE_PATH}/coverage/lcov-report/index.html`).assertIsNotEmpty();
